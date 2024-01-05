@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import WebGL from 'three/addons/capabilities/WebGL.js';
 
 // needed to display in three
 const scene = new THREE.Scene();
@@ -30,4 +31,10 @@ function animate() {
     renderer.render( scene, camera );
 }
 
-animate();
+// replaces animate() in case of WebGL-incompatible browser
+if (WebGL.isWebGLAvailable()) {
+    animate();
+} else {
+    const warning = WebGL.getWebGLErrorMessage();
+    document.getElementById( 'container' ).appendChild( warning );
+}
