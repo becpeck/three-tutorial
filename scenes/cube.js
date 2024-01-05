@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import WebGL from 'three/addons/capabilities/WebGL.js';
+import WebGL from 'three/addons/capabilities/WebGL';
 
 export default function cube() {
     // needed to display in three
